@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    <h:head>
+    </h:head>
+    <h:body>
+        <pm:page>
+            <pm:header swatch="b" style="text-align: center">Welcome Admin</pm:header>
+            <pm:content>
+                <h:form>
+                    <p:growl id="growl-ad-tf" showDetail="true" />
+                    <pm:field>
+                        <p:menu>
+                            <p:menuitem value="Home Page" outcome="AdminHomePage"/>
+                            <p:menuitem value="Sign out" outcome="index"/>
+                        </p:menu>
+                    </pm:field> <br/>
+                    <h3 style="text-align: center">Add True/False Questions to the bank</h3>
+                    <pm:field>
+                        <p:outputLabel for="qid" value="ID" />
+                        <p:inputText id="qid" value="#{adminController.qid}" required="true" />
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="qtext" value="Question" />
+                        <p:inputTextarea id="qtext" value="#{adminController.qtext}" required="true" maxlength="999" />
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="qlevel" value="Select Question level" />
+                        <p:selectOneMenu id="qlevel" value="#{adminController.qlevel}" required="true">
+                            <f:selectItem itemLabel="Level 1" itemValue="1"/>
+                            <f:selectItem itemLabel="Level 2" itemValue="2"/>
+                            <f:selectItem itemLabel="Level 3" itemValue="3"/>
+                            <f:selectItem itemLabel="Level 4" itemValue="4"/>
+                            <f:selectItem itemLabel="Level 5" itemValue="5"/>
+                        </p:selectOneMenu>
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="qcategory" value="Select Question category" />
+                        <p:selectOneMenu id="qcategory" value="#{adminController.qcategory}" required="true">
+                            <f:selectItem itemLabel="Injury / Illness prevention and wellness protection" itemValue="injury"/>
+                            <f:selectItem itemLabel="Clinical evaluation and diagnosis" itemValue="clinical"/>
+                            <f:selectItem itemLabel="Immediate and emergency care" itemValue="immediate"/>
+                            <f:selectItem itemLabel="Treatment and rehabilitation" itemValue="treatment"/>
+                            <f:selectItem itemLabel="Organizational and professional health and well-being" itemValue="organizational"/>
+                            <f:selectItem itemLabel="Other" itemValue="other"/>
+                        </p:selectOneMenu>
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="correct_answer" value="Correct Answer" />
+                        <p:selectOneMenu value="#{adminController.correct_answer}" id="correct_answer" required="true">
+                            <f:selectItem itemLabel="True" itemValue="true"/>
+                            <f:selectItem itemLabel="False" itemValue="false"/>
+                        </p:selectOneMenu>
+                    </pm:field>
+                    <h:commandButton value="Create Question" action="#{adminController.createTFQuestion()}" />
+                </h:form>
+            </pm:content>
+        </pm:page>
+    </h:body>
+</html>
+

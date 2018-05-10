@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <pm:page>
+            <pm:header swatch="b" style="text-align: center">Sign up</pm:header>
+            
+            <pm:content>
+                <h3 style="text-align: center">Sign up for your free BOC Trivia account</h3>
+                <h:form>
+                    <p:growl id="growl-su" />
+                    <pm:field>
+                        <p:outputLabel for="email" value="Username (Email)"/>
+                        <p:inputText id="email" value="#{signupController.email}" required="true"/>
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="fname" value="First Name"/>
+                        <p:inputText id="fname" value="#{signupController.fname}" required="true"/>
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="lname" value="Last Name"/>
+                        <p:inputText id="lname" value="#{signupController.lname}"/>
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="password" value="Password"/>
+                        <p:password id="password" value="#{signupController.password}" required="true"/>
+                        <br/>
+                        <p:outputLabel for="reppassword" value="Repeat Password"/>
+                        <p:password id="reppassword" value="#{signupController.reppassword}" required="true"/>
+                    </pm:field>
+                    <pm:field>
+                         <h:commandButton value="Submit" action="#{signupController.signUp()}" />
+                    </pm:field>
+                    
+                </h:form>
+            </pm:content>
+            
+        </pm:page>
+    </h:body>
+</html>
+

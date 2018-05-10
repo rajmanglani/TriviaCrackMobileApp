@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <pm:page>
+            <pm:header swatch="b" style="text-align: center"> Leader Board </pm:header>
+            <pm:content>
+                <h:form>
+                    <p:dataTable value="#{leaderBoardController.leaders}" var="user" style="text-align: center">
+                        <p:column headerText="Position">
+                            <h:outputText value="#{user.sno}"/>
+                        </p:column>
+                        <p:column headerText="First Name">
+                            <h:outputText value="#{user.fname}"/>
+                        </p:column>
+                        <p:column headerText="Last Name">
+                            <h:outputText value="#{user.lname}"/>
+                        </p:column>
+                        <p:column headerText="Points">
+                            <h:outputText value="#{user.points}"/>
+                        </p:column>
+                    </p:dataTable>
+                    <br/> <br/>
+                    <h:commandButton value="Return to Home Page" action="#{leaderBoardController.goBack()}" />
+                </h:form>
+            </pm:content>
+        </pm:page>
+    </h:body>
+</html>
+

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    <h:head>
+        
+    </h:head>
+    <h:body >
+        <pm:page>
+            <pm:header swatch="b" style="text-align: center">Manchester University Athletic Training</pm:header>
+            
+            <pm:content style="background-color: #f2d921">
+                <h1 style="text-align: center">Certification Trivia</h1>
+                <h:form>
+                    <p:messages id="messages"  closable="true" style="font-weight: bolder ; color: red"/>
+                    <pm:field>
+                        <p:outputLabel for="username" value="Username"/>
+                        <p:inputText id="username" value="#{loginCont.username}" required="true" style="background-color: ivory" />
+                    </pm:field>
+                    <pm:field>
+                        <p:outputLabel for="password" value="Password"/>
+                        <p:password id="password" value="#{loginCont.password}" required="true" style="background-color: ivory" />
+                    </pm:field>
+                    <pm:field>
+                        <h:commandButton value="Login" action="#{loginCont.login()}" style="background-color: black" />
+                   
+                        <p style="text-align: center; font-weight: bold">Don't have an account yet? </p>
+                        
+                    
+                        <p:button value="Sign up" outcome="SignUpPage" style="background-color: #b2b2a7"/>
+                    </pm:field>
+                </h:form>
+            </pm:content>
+            
+            <pm:footer title="" style="background-color: #ffffff">
+                <img src="resources/manchester.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto; margin-top: 0"/>
+                <br/><br/>
+            </pm:footer>
+        </pm:page>
+    </h:body>
+</html>
+

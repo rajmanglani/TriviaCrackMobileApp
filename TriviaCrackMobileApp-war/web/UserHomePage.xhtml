@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    
+    <h:head>
+       
+    </h:head>
+    <h:body>
+        <pm:page>
+            <pm:header swatch="b" style="text-align: center">WELCOME #{userHomePgController.fname} #{userHomePgController.lname}</pm:header>
+            <pm:content style="background-color: #262623">
+                <h1 style="text-align: center; color: white ">SELECT A CATEGORY</h1>
+                <br/>
+                <pm:field>
+                    <h:form>
+                        <p:panelGrid columns="1">
+                            <h:commandButton image="resources/Injury.jpg" action="#{userHomePgController.injury()}" style="margin: auto; display: block" /> <br/>
+                            <h:outputLabel value="Injury / Illness prevention and wellness protection" style="text-align: center; color: white" /> <br/>
+                            
+                            <h:commandButton image="resources/Diagnosis.jpg" action="#{userHomePgController.clinical()}" style="margin: auto; display: block" /> <br/>
+                            <h:outputLabel value="Clinical evaluation and diagnosis" style="text-align: center; color: white" /> <br/>
+                            
+                            <h:commandButton image="resources/Emergency.jpg" action="#{userHomePgController.emergency()}" style="margin: auto; display: block" /> <br/>
+                            <h:outputLabel value="Immediate and emergency care" style="text-align: center; color: white" /> <br/>
+                            
+                            <h:commandButton image="resources/Organizational.jpg" action="#{userHomePgController.organizational()}" style="margin: auto; display: block" /> <br/>
+                            <h:outputLabel value="Organizational and professional health and well-being" style="text-align: center; color: white" /> <br/>
+                            
+                            <h:commandButton image="resources/rehab.jpg" action="#{userHomePgController.rehab()}" style="margin: auto; display: block" /> <br/>
+                            <h:outputLabel value="Treatment and rehabilitation" style="text-align: center; color: white" /> <br/>
+                            
+                            <h:commandButton image="resources/Other.jpg" action="#{userHomePgController.other()}" style="margin: auto; display: block" /> <br/>
+                            <h:outputLabel value="Other" style="text-align: center; color: white" /> <br/>
+                        </p:panelGrid>
+                        <h:commandButton value="Leader Board Table" action="#{userHomePgController.leaderboard()}"/> 
+                    </h:form>
+                </pm:field>
+            </pm:content>
+            <pm:footer>
+                <p:button value="About the game" outcome="UserInstructions" style="background: gold; font-size: x-large" />
+                <p:button value="Sign out" outcome="index" style="background: #f51a46; font-size: x-large; color: white"/> 
+            </pm:footer>
+        </pm:page>
+    </h:body>
+</html>
+

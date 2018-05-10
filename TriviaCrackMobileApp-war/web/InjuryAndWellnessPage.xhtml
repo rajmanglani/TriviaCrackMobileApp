@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <pm:page>
+            <pm:header swatch="b" style="text-align: center">Injury / Illness prevention and wellness protection</pm:header>
+            <pm:content>
+                <h:form>
+                    <p:growl id="growl-inj" life="1000" autoUpdate="true"/>
+                    <h:outputScript library="primefaces/poll" name="poll.js"/>
+                    <h:outputText id="txt_timer" value="Time remaining: #{illnessandWellnessController.timer}" style="font-weight: bold" />
+                    <p:poll interval="1" listener="#{illnessandWellnessController.onTimerInc()}" update="txt_timer opt ques" delay="none" global="false"/>
+                    
+                    <pm:field>
+                        <h:outputText id="ques" value="#{illnessandWellnessController.question}"/>
+                    </pm:field>
+                    <pm:field rendered="#{illnessandWellnessController.mcq}">
+                        <p:selectOneRadio value="#{illnessandWellnessController.answer}" id="opt">
+                            <f:selectItems value="#{illnessandWellnessController.options}" var="option" itemLabel="#{option}" itemValue="#{option}"/>
+                        </p:selectOneRadio>
+                    </pm:field>
+                    <pm:field rendered="#{illnessandWellnessController.tf}">
+                        <p:selectOneRadio value="#{illnessandWellnessController.answer}">
+                            <f:selectItem itemLabel="True" itemValue="true"/>
+                            <f:selectItem itemLabel="False" itemValue="false"/>
+                        </p:selectOneRadio>
+                    </pm:field>
+                    <pm:field rendered="#{illnessandWellnessController.fb}">
+                        <p:inputText value="#{illnessandWellnessController.answer}" />
+                    </pm:field>
+                    <pm:field>
+                        <h:commandButton value="Next" action="#{illnessandWellnessController.evaluateAnswer()}"/>
+                    </pm:field>
+                    <pm:field>
+                        <h:commandButton value="Show Answer" action="#{illnessandWellnessController.showAnswer()}"/>
+                    </pm:field>
+                    <pm:field>
+                        <h:commandButton value="Quit" action="#{illnessandWellnessController.quit()}"/>
+                    </pm:field>
+                 </h:form>    
+            </pm:content>
+        </pm:page>
+    </h:body>
+</html>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pm="http://primefaces.org/mobile"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view renderKitId="PRIMEFACES_MOBILE" />
+    
+    <h:head>
+        
+    </h:head>
+    <h:body>
+        <pm:page>
+            <pm:header swatch="b" style="text-align: center">Welcome Admin</pm:header>
+            <pm:content>
+                <h:form>
+                    <p:growl id="growl-rem" showDetail="true"/>
+                    <pm:field>
+                        <p:menu>
+                            <p:menuitem value="Add Questions" outcome="AdminHomePage"/>
+                            <p:menuitem value="Sign out" outcome="index"/>
+                        </p:menu>
+                    </pm:field> <br/>
+                    <h3 style="text-align: center">Remove Questions</h3>
+                    <pm:field>
+                        <p:dataTable var="question" value="#{adminRemoveController.questionsList}" style="text-align: center" resizableColumns="true">
+                        <p:column headerText="Question">
+                            <pm:field>
+                            <h:outputText value="#{question.text}"/>
+                            </pm:field>
+                        </p:column>
+                            
+                        <p:column headerText="Category">
+                            <pm:field>
+                            <h:outputText value="#{question.category.categoryname}"/>
+                            </pm:field>
+                        </p:column>
+                            <p:column headerText="Level">
+                                <pm:field>
+                            <h:outputText value="#{question.questionLevel}"/>
+                            </pm:field>
+                        </p:column>
+                        <p:column headerText="Correct Answer">
+                            <pm:field>
+                            <h:outputText value="#{question.correctAnswer}"/>
+                            </pm:field>
+                        </p:column>
+                        <p:column headerText="">
+                            <pm:field>
+                            <h:commandButton value="Remove" action="#{adminRemoveController.remove(question)}" />
+                            </pm:field>
+                        </p:column>
+                    </p:dataTable>
+                    </pm:field>
+                </h:form>
+            </pm:content>
+        </pm:page>
+    </h:body>
+</html>
+
